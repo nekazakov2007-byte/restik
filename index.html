@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qcold | Автоматизированный ресторан</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-snowflake"></i>
+                    <span>Q<span class="logo-accent">cold</span></span>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#menu">Меню</a></li>
+                        <li><a href="#reservation">Бронирование</a></li>
+                        <li><a href="#order">Заказать онлайн</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Добро пожаловать в Qcold</h1>
+                <p class="hero-subtitle">Автоматизированный ресторан будущего с технологичным обслуживанием и изысканной кухней</p>
+                <div class="hero-buttons">
+                    <a href="#reservation" class="cta-button primary">Забронировать стол</a>
+                    <a href="#menu" class="cta-button secondary">Посмотреть меню</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Ресторан будущего уже здесь</h2>
+                    <p>Qcold - это уникальное пространство, где передовые технологии встречаются с гастрономическим искусством. Наша автоматизированная система позволяет обеспечить безупречный сервис, быстрые заказы и персонализированные рекомендации для каждого гостя.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-robot"></i>
+                            <span>Роботизированная подача</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tablet-alt"></i>
+                            <span>Цифровое меню</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Быстрый заказ</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-qrcode"></i>
+                            <span>QR-заказ с телефона</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-overlay"></div>
+                    <div class="about-image-content">
+                        <i class="fas fa-utensils"></i>
+                        <p>Технологии на службе гастрономии</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Наше меню</h2>
+            <p class="section-subtitle">Насладитесь блюдами с фотографиями, сделанными нашими шеф-поварами. Каждое блюдо - произведение искусства</p>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">Все блюда</button>
+                <button class="category-btn" data-category="cold">Холодные закуски</button>
+                <button class="category-btn" data-category="hot">Горячие блюда</button>
+                <button class="category-btn" data-category="drinks">Напитки</button>
+                <button class="category-btn" data-category="desserts">Десерты</button>
+            </div>
+            
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+            
+            <div class="order-info">
+                <p><i class="fas fa-clock"></i> Среднее время приготовления: <span id="avgTime">18 мин</span></p>
+                <p><i class="fas fa-shipping-fast"></i> Доставка доступна в течение <span id="deliveryTime">35 мин</span></p>
+                <p><i class="fas fa-camera"></i> Все фото - реальные блюда нашего ресторана</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <div class="reservation-content">
+                <div class="reservation-form">
+                    <h2>Бронирование столика</h2>
+                    <p>Забронируйте столик онлайн и получите подтверждение моментально</p>
+                    
+                    <form id="reservationForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" required placeholder="Иван Иванов">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" required placeholder="+7 (999) 123-45-67">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Дата</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="time">Время</label>
+                            <input type="time" id="time" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">Количество гостей</label>
+                            <select id="guests" required>
+                                <option value="1">1 человек</option>
+                                <option value="2" selected>2 человека</option>
+                                <option value="3">3 человека</option>
+                                <option value="4">4 человека</option>
+                                <option value="5">5 человек</option>
+                                <option value="6+">6+ человек</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tableType">Тип столика</label>
+                            <select id="tableType">
+                                <option value="standard">Стандартный</option>
+                                <option value="window">У окна</option>
+                                <option value="vip">VIP зона</option>
+                                <option value="private">Отдельный кабинет</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="cta-button primary">Забронировать</button>
+                    </form>
+                </div>
+                
+                <div class="reservation-info">
+                    <h3>Доступные столики</h3>
+                    <div class="tables-status">
+                        <div class="table-status">
+                            <div class="table-icon available"></div>
+                            <span>Свободен</span>
+                        </div>
+                        <div class="table-status">
+                            <div class="table-icon reserved"></div>
+                            <span>Забронирован</span>
+                        </div>
+                        <div class="table-status">
+                            <div class="table-icon occupied"></div>
+                            <span>Занят</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tables-grid" id="tablesGrid">
+                        <!-- Tables will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="reservation-tips">
+                        <p><i class="fas fa-info-circle"></i> Бронирование подтверждается автоматически</p>
+                        <p><i class="fas fa-clock"></i> Рекомендуем прибыть за 10 минут до времени брони</p>
+                        <p><i class="fas fa-robot"></i> При заказе через приложение - скидка 10%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Order Section -->
+    <section class="online-order" id="order">
+        <div class="container">
+            <h2 class="section-title">Заказать онлайн</h2>
+            <p class="section-subtitle">Закажите еду на вынос или доставку через нашу автоматизированную систему</p>
+            
+            <div class="order-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Выберите блюда</h3>
+                    <p>Отсканируйте QR-код на столике или выберите из меню на сайте с реальными фотографиями</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Оплатите онлайн</h3>
+                    <p>Безопасная оплата картой или через электронные кошельки</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Получите заказ</h3>
+                    <p>Заберите в ресторане или дождитесь доставки. Робот-официант доставит к столику</p>
+                </div>
+            </div>
+            
+            <div class="qr-section">
+                <div class="qr-code">
+                    <div class="qr-placeholder">
+                        <div class="qr-simulator">
+                            <div class="qr-pattern"></div>
+                            <div class="qr-pattern"></div>
+                            <div class="qr-pattern"></div>
+                        </div>
+                        <p>Наведите камеру телефона</p>
+                    </div>
+                </div>
+                <div class="qr-info">
+                    <h3>Заказ через QR-код</h3>
+                    <p>Наведите камеру телефона на QR-код на столике, чтобы открыть меню с фотографиями блюд и сделать заказ. Наш робот-официант доставит его к вашему столику.</p>
+                    <a href="#menu" class="cta-button primary">Посмотреть меню с фото</a>
+                    <div class="app-links">
+                        <p>Или скачайте наше приложение:</p>
+                        <div class="app-buttons">
+                            <a href="#" class="app-btn">
+                                <i class="fab fa-apple"></i>
+                                <span>App Store</span>
+                            </a>
+                            <a href="#" class="app-btn">
+                                <i class="fab fa-google-play"></i>
+                                <span>Google Play</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <i class="fas fa-snowflake"></i>
+                        <span>Q<span class="logo-accent">cold</span></span>
+                    </div>
+                    <p>Автоматизированный ресторан будущего. Технологии на службе гастрономии.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-info">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-map-marker-alt"></i>г. Новосибирск, Красный проспект 177</p>
+                    <p><i class="fas fa-phone"></i> +7 913 380 51 68</p>
+                    <p><i class="fas fa-envelope"></i> mafiaQcold@yandex.ru</p>
+                    <p><i class="fas fa-clock"></i> Ежедневно 16:00 - 04:00</p>
+                </div>
+                
+                <div class="footer-app">
+                    <h4>Наше приложение</h4>
+                    <p>Скачайте приложение для быстрого заказа и получения бонусов</p>
+                    <div class="app-buttons">
+                        <a href="#" class="app-btn">
+                            <i class="fab fa-apple"></i>
+                            <span>App Store</span>
+                        </a>
+                        <a href="#" class="app-btn">
+                            <i class="fab fa-google-play"></i>
+                            <span>Google Play</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Qcold. Все права защищены.</p>
+                <p>Сайт работает на автоматизированной системе управления рестораном</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Ваш заказ</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="cart-total">
+                <p>Итого: <span id="cartTotal">0</span> ₽</p>
+            </div>
+            <div class="cart-actions">
+                <button class="cta-button secondary" id="clearCart">Очистить</button>
+                <button class="cta-button primary" id="checkout">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="cart-button" id="cartButton">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <p id="notificationText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
